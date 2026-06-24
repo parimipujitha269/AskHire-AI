@@ -5,63 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Interview Question Generator</title>
+    <title>AskHire AI | Prepare Smarter. Get Hired Faster.</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<body>
 
     <div class="container">
 
-        <h1>AI Interview Question Generator</h1>
+        <h1>AskHire AI</h1>
+
+        <h3>Prepare Smarter. Get Hired Faster.</h3>
 
         <p>
-            Generate personalized interview questions using Artificial Intelligence.
+            AI-powered Interview Preparation Platform
         </p>
 
         <hr>
 
-        <label for="resume">Upload Resume (PDF)</label>
+        <label for="resume">
+            Upload Resume (PDF)
+        </label>
+
         <br><br>
 
-        <input type="file" id="resume" accept=".pdf">
+        <input
+            type="file"
+            id="resume"
+            accept=".pdf">
 
         <br><br>
 
-        <label for="role">Select Job Role</label>
+        <label for="role">
+    Select Job Role
+</label>
+
         <br><br>
 
         <select id="role">
 
-            <option>Software Engineer</option>
-            <option>Frontend Developer</option>
-            <option>Backend Developer</option>
-            <option>Full Stack Developer</option>
-            <option>Data Analyst</option>
+            <option value="">-- Select Role --</option>
 
+<option value="Software Engineer">Software Engineer</option>
+
+<option value="Frontend Developer">Frontend Developer</option>
+
+<option value="Backend Developer">Backend Developer</option>
+
+<option value="Full Stack Developer">Full Stack Developer</option>
+
+<option value="Python Developer">Python Developer</option>
+
+<option value="Java Developer">Java Developer</option>
+
+<option value="Data Analyst">Data Analyst</option>
         </select>
 
         <br><br>
 
-        <label>Difficulty</label>
+        <h4>Difficulty</h4>
 
         <br><br>
 
-        <input type="radio" name="difficulty"> Easy
-        <input type="radio" name="difficulty"> Medium
-        <input type="radio" name="difficulty"> Hard
+        <input type="radio" id="easy" name="difficulty" value="Easy">
+        <label for="easy">Easy</label>
+
+        <input type="radio" id="medium" name="difficulty" value="Medium">
+        <label for="medium">Medium</label>
+
+        <input type="radio" id="hard" name="difficulty" value="Hard">
+        <label for="hard">Hard</label>
 
         <br><br>
 
-        <button>Generate Questions</button>
+        <button id="generateBtn">
+    Generate Questions
+</button>
+
+        <hr>
+
+        <h2>Generated Questions</h2>
+
+        <h3>Technical Questions</h3>
+
+        <div id="technicalQuestions"></div>
+
+        <h3>HR Questions</h3>
+
+       <div id="hrQuestions"></div>
+
+        <h3>Coding Questions</h3>
+
+        <div id="codingQuestions"></div>
 
     </div>
 
     <script src="script.js"></script>
-
-</body>
 
 </body>
 
