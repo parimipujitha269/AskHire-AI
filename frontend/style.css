@@ -49,6 +49,7 @@ h1{
 
 .tagline{
     margin-bottom:15px;
+      font-weight:500;
 }
 
 .description{
@@ -118,20 +119,21 @@ label {
     margin-bottom: 8px;
 }
 
-input[type="file"] {
-    margin-top: 8px;
-    margin-bottom: 20px;
+input[type="file"]{
+    width:100%;
+    margin-top:8px;
+    margin-bottom:20px;
 }
 
-select {
-    width: 320px;
-    padding: 10px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 15px;
-    margin-top: 8px;
-    margin-bottom: 20px;
-    outline: none;
+select{
+    width:100%;
+    padding:10px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    font-size:15px;
+    margin-top:8px;
+    margin-bottom:20px;
+    outline:none;
 }
 
 select:hover,
@@ -227,3 +229,23 @@ button{
     font-style:italic;
     margin-top:35px;
 }
+/* ========================================
+   MESSAGE BOX
+======================================== */
+
+#message{
+
+    min-height:25px;
+
+    margin-top:20px;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+    text-align:center;
+
+}
+/* #resultSection{
+    display:none;
+} */

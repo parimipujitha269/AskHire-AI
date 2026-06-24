@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AskHire AI | Prepare Smarter. Get Hired Faster.</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,56 +23,46 @@
 
         <h3>Prepare Smarter. Get Hired Faster.</h3>
 
-        <p>
-            AI-powered Interview Preparation Platform
-        </p>
+        <p>AI-powered Interview Preparation Platform</p>
 
         <hr>
-<div class="form-row">
 
-    <div class="form-group">
+        <div class="form-row">
 
-        <label for="resume">Upload Resume (PDF)</label>
+            <div class="form-group">
 
-        <input type="file"
-               id="resume"
-               accept=".pdf">
+                <label for="resume">Upload Resume (PDF)</label>
 
-    </div>
+                <input
+                    type="file"
+                    id="resume"
+                    accept=".pdf">
 
-    <div class="form-group">
+            </div>
 
-        <label for="role">Select Job Role</label>
+            <div class="form-group">
 
-        <select id="role">
+                <label for="role">Select Job Role</label>
 
-            <option value="">-- Select Role --</option>
+                <select id="role">
 
-            <option value="Software Engineer">Software Engineer</option>
+                    <option value="">-- Select Role --</option>
 
-            <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Full Stack Developer">Full Stack Developer</option>
+                    <option value="Python Developer">Python Developer</option>
+                    <option value="Java Developer">Java Developer</option>
+                    <option value="Data Analyst">Data Analyst</option>
 
-            <option value="Backend Developer">Backend Developer</option>
+                </select>
 
-            <option value="Full Stack Developer">Full Stack Developer</option>
+            </div>
 
-            <option value="Python Developer">Python Developer</option>
+        </div>
 
-            <option value="Java Developer">Java Developer</option>
-
-            <option value="Data Analyst">Data Analyst</option>
-
-        </select>
-
-    </div>
-
-</div>
-
-        <br><br>
-
-        <h4>Difficulty</h4>
-
-        <br><br>
+        <h4>Interview Difficulty</h4>
 
         <input type="radio" id="easy" name="difficulty" value="Easy">
         <label for="easy">Easy</label>
@@ -82,46 +73,53 @@
         <input type="radio" id="hard" name="difficulty" value="Hard">
         <label for="hard">Hard</label>
 
-        <br><br>
+        <div id="message"></div>
 
-       <div class="button-container">
-    <button id="generateBtn">
-        🚀 Start Interview Preparation
-    </button>
-</div>
+        <div class="button-container">
+
+            <button id="generateBtn">
+                🚀 Start Interview Preparation
+            </button>
+
+        </div>
+
         <hr>
 
-        <h2>Mock Interview Questions</h2>
+        <div id="resultSection">
 
-        <h3>Technical Round Questions</h3>
+            <h2>Your Personalized Interview Questions</h2>
 
-        <div id="technicalQuestions">
+            <h3>💻 Technical Interview Questions</h3>
 
-    <p class="placeholder">
-        Technical interview questions will appear here.
-    </p>
+            <div id="technicalQuestions">
 
-</div>
+                <p class="placeholder">
+                    Technical interview questions will appear here.
+                </p>
 
-        <h3>HR Round Questions</h3>
+            </div>
 
-       <div id="hrQuestions">
+            <h3>👥 HR Interview Questions</h3>
 
-    <p class="placeholder">
-        HR interview questions will appear here.
-    </p>
+            <div id="hrQuestions">
 
-</div>
+                <p class="placeholder">
+                    HR interview questions will appear here.
+                </p>
 
-        <h3>Coding Questions</h3>
+            </div>
 
-       <div id="codingQuestions">
+            <h3>💡 Coding Challenge</h3>
 
-    <p class="placeholder">
-        Coding challenge will appear here.
-    </p>
+            <div id="codingQuestions">
 
-</div>
+                <p class="placeholder">
+                    Coding challenge will appear here.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
