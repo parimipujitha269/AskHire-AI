@@ -1,0 +1,229 @@
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background:#f3f5f7;
+}
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.container{
+
+    width:75%;
+
+    max-width:900px;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:16px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,0.08);
+
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+h1{
+    margin-bottom:15px;
+}
+
+.tagline{
+    margin-bottom:15px;
+}
+
+.description{
+    margin-bottom:35px;
+}
+h2{
+
+    text-align:center;
+
+    margin:40px 0 30px;
+
+    color:#0f172a;
+
+    font-size:30px;
+
+}
+
+h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+    font-size:20px;
+
+}
+p {
+    text-align: center;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* ========================================
+   HORIZONTAL LINE
+======================================== */
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 25px 0;
+}
+
+/* ========================================
+   FLEXBOX LAYOUT
+======================================== */
+
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+/* ========================================
+   FORM ELEMENTS
+======================================== */
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+input[type="file"] {
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 320px;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+select:hover,
+select:focus {
+    border-color: #2563eb;
+}
+
+/* ========================================
+   DIFFICULTY
+======================================== */
+
+h4 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+input[type="radio"] {
+    margin-right: 6px;
+}
+
+label[for="easy"],
+label[for="medium"],
+label[for="hard"] {
+    display: inline;
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+button{
+
+    width:100%;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+/* ========================================
+   GENERATED QUESTION SECTIONS
+======================================== */
+
+
+#technicalQuestions,
+#hrQuestions,
+#codingQuestions{
+
+    min-height:150px;
+
+    background:white;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:30px;
+
+    transition:.3s;
+
+}
+/* ========================================
+   PLACEHOLDER TEXT
+======================================== */
+
+.placeholder{
+    text-align:center;
+    color:#94a3b8;
+    font-style:italic;
+    margin-top:35px;
+}

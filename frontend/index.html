@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AskHire AI | Prepare Smarter. Get Hired Faster.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,44 +27,45 @@
         </p>
 
         <hr>
+<div class="form-row">
 
-        <label for="resume">
-            Upload Resume (PDF)
-        </label>
+    <div class="form-group">
 
-        <br><br>
+        <label for="resume">Upload Resume (PDF)</label>
 
-        <input
-            type="file"
-            id="resume"
-            accept=".pdf">
+        <input type="file"
+               id="resume"
+               accept=".pdf">
 
-        <br><br>
+    </div>
 
-        <label for="role">
-    Select Job Role
-</label>
+    <div class="form-group">
 
-        <br><br>
+        <label for="role">Select Job Role</label>
 
         <select id="role">
 
             <option value="">-- Select Role --</option>
 
-<option value="Software Engineer">Software Engineer</option>
+            <option value="Software Engineer">Software Engineer</option>
 
-<option value="Frontend Developer">Frontend Developer</option>
+            <option value="Frontend Developer">Frontend Developer</option>
 
-<option value="Backend Developer">Backend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
 
-<option value="Full Stack Developer">Full Stack Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
 
-<option value="Python Developer">Python Developer</option>
+            <option value="Python Developer">Python Developer</option>
 
-<option value="Java Developer">Java Developer</option>
+            <option value="Java Developer">Java Developer</option>
 
-<option value="Data Analyst">Data Analyst</option>
+            <option value="Data Analyst">Data Analyst</option>
+
         </select>
+
+    </div>
+
+</div>
 
         <br><br>
 
@@ -79,25 +84,44 @@
 
         <br><br>
 
-        <button id="generateBtn">
-    Generate Questions
-</button>
-
+       <div class="button-container">
+    <button id="generateBtn">
+        🚀 Start Interview Preparation
+    </button>
+</div>
         <hr>
 
-        <h2>Generated Questions</h2>
+        <h2>Mock Interview Questions</h2>
 
-        <h3>Technical Questions</h3>
+        <h3>Technical Round Questions</h3>
 
-        <div id="technicalQuestions"></div>
+        <div id="technicalQuestions">
 
-        <h3>HR Questions</h3>
+    <p class="placeholder">
+        Technical interview questions will appear here.
+    </p>
 
-       <div id="hrQuestions"></div>
+</div>
+
+        <h3>HR Round Questions</h3>
+
+       <div id="hrQuestions">
+
+    <p class="placeholder">
+        HR interview questions will appear here.
+    </p>
+
+</div>
 
         <h3>Coding Questions</h3>
 
-        <div id="codingQuestions"></div>
+       <div id="codingQuestions">
+
+    <p class="placeholder">
+        Coding challenge will appear here.
+    </p>
+
+</div>
 
     </div>
 
