@@ -102,10 +102,10 @@ fetch("http://127.0.0.1:5000/upload", {
 })
 .then(function(data){
 
-    console.log(data);
+    console.log(data.filename);
+    console.log(data.resume_text);
 
     message.textContent = "✅ Uploaded : " + data.filename;
-
     message.style.color = "green";
 
 });
