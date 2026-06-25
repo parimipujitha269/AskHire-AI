@@ -83,10 +83,13 @@ setTimeout(function () {
         <li>Check whether a string is a palindrome.</li>
     </ul>
     `;
-
-    const formData = new FormData();
+const formData = new FormData();
 
 formData.append("resume", resumeInput.files[0]);
+
+formData.append("role", role);
+
+formData.append("difficulty", difficulty.value);
 
 fetch("http://127.0.0.1:5000/upload", {
 
@@ -102,10 +105,10 @@ fetch("http://127.0.0.1:5000/upload", {
 })
 .then(function(data){
 
-    console.log(data.filename);
-    console.log(data.resume_text);
+    console.log(data);
 
-    message.textContent = "✅ Uploaded : " + data.filename;
+    message.textContent =
+        "✅ " + data.filename + " uploaded successfully!";
     message.style.color = "green";
 
 });
