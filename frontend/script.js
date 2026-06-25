@@ -5,134 +5,142 @@ const message = document.getElementById("message");
 const resultSection = document.getElementById("resultSection");
 
 const technicalQuestions = document.getElementById("technicalQuestions");
-
 const hrQuestions = document.getElementById("hrQuestions");
-
 const codingQuestions = document.getElementById("codingQuestions");
 
 generateBtn.addEventListener("click", function () {
 
     const resume = resumeInput.files;
     const role = roleSelect.value;
-    const difficulty = document.querySelector(
-        'input[name="difficulty"]:checked'
-    );
+    const difficulty = document.querySelector('input[name="difficulty"]:checked');
 
+    // Validation
     if (resume.length === 0) {
         message.textContent = "❌ Please upload your resume.";
-
-message.style.color = "red";
-
-return;
+        message.style.color = "red";
+        return;
     }
 
-   if (role === "") {
+    if (role === "") {
+        message.textContent = "❌ Please select a job role.";
+        message.style.color = "red";
+        return;
+    }
 
-    message.textContent = "❌ Please select a job role.";
-    message.style.color = "red";
-    return;
+    if (difficulty === null) {
+        message.textContent = "❌ Please choose a difficulty level.";
+        message.style.color = "red";
+        return;
+    }
 
-}
+    // Hide previous result
+    resultSection.style.display = "none";
 
-if (difficulty === null) {
+    // Disable button
+    generateBtn.disabled = true;
+    generateBtn.textContent = "⏳ Generating...";
 
-    message.textContent = "❌ Please choose a difficulty level.";
-    message.style.color = "red";
-    return;
+    // Prepare form data
+    const formData = new FormData();
+    formData.append("resume", resumeInput.files[0]);
+    formData.append("role", role);
+    formData.append("difficulty", difficulty.value);
 
-}
-   message.textContent = "📄 Reading your resume...";
-message.style.color = "#2563eb";
-setTimeout(function () {
+    // Step 1
+    message.textContent = "📄 Reading your resume...";
+    message.style.color = "#2563eb";
 
-    message.textContent = "🧠 Analyzing your skills...";
+    setTimeout(function () {
 
-}, 2000);
+        // Step 2
+        message.textContent = "🧠 Analyzing your skills...";
 
-setTimeout(function () {
+        setTimeout(function () {
 
-    message.textContent = "🤖 Generating interview questions...";
+            // Step 3
+            message.textContent = "🤖 Generating interview questions...";
 
-}, 4000);
+            fetch("http://127.0.0.1:5000/upload", {
+                method: "POST",
+                body: formData
+            })
 
+            .then(function (response) {
+                return response.json();
+            })
 
-setTimeout(function () {
+            .then(function (data) {
 
-    resultSection.style.display = "block";
+                // Error from backend
+                if (data.error) {
 
-    /*technicalQuestions.innerHTML = `
-    <ul>
-        <li>What is a REST API?</li>
-        <li>Explain Stack vs Heap Memory.</li>
-        <li>What is Polymorphism?</li>
-    </ul>
-    `;
+                    message.textContent = "❌ " + data.error;
+                    message.style.color = "red";
 
-    hrQuestions.innerHTML = `
-    <ul>
-        <li>Tell me about yourself.</li>
-        <li>Why should we hire you?</li>
-        <li>What are your strengths?</li>
-    </ul>
-    `;
+                    generateBtn.disabled = false;
+                    generateBtn.textContent = "🚀 Start Interview Preparation";
 
-    codingQuestions.innerHTML = `
-    <ul>
-        <li>Reverse a string.</li>
-        <li>Find the largest element in an array.</li>
-        <li>Check whether a string is a palindrome.</li>
-    </ul>
-    `;*/
-const formData = new FormData();
+                    return;
+                }
 
-formData.append("resume", resumeInput.files[0]);
+                resultSection.style.display = "block";
 
-formData.append("role", role);
+                const questions = JSON.parse(data.questions);
 
-formData.append("difficulty", difficulty.value);
+                technicalQuestions.innerHTML =
+                    questions.technical.map(function (q, index) {
+                        return `
+                        <div class="question-card">
+                            <h4>💻 Technical Question ${index + 1}</h4>
+                            <p>${q}</p>
+                        </div>
+                        `;
+                    }).join("");
 
-fetch("http://127.0.0.1:5000/upload", {
+                hrQuestions.innerHTML =
+                    questions.hr.map(function (q, index) {
+                        return `
+                        <div class="question-card">
+                            <h4>👥 HR Question ${index + 1}</h4>
+                            <p>${q}</p>
+                        </div>
+                        `;
+                    }).join("");
 
-    method: "POST",
+                codingQuestions.innerHTML =
+                    questions.coding.map(function (q, index) {
+                        return `
+                        <div class="question-card">
+                            <h4>💡 Coding Challenge ${index + 1}</h4>
+                            <p>${q}</p>
+                        </div>
+                        `;
+                    }).join("");
 
-    body: formData
+                message.textContent =
+                    "✅ " + data.filename + " uploaded successfully!";
+                message.style.color = "green";
 
-})
-.then(function(response){
+                generateBtn.disabled = false;
+                generateBtn.textContent = "🚀 Start Interview Preparation";
 
-    return response.json();
+            })
 
-})
-.then(function(data){
+            .catch(function (error) {
 
-    const questions = JSON.parse(data.questions);
+                console.error(error);
 
-    technicalQuestions.innerHTML =
-    "<ul>" +
-    questions.technical.map(function(q){
-        return "<li>" + q + "</li>";
-    }).join("") +
-    "</ul>";
+                message.textContent =
+                    "❌ Unable to connect to the backend.";
+                message.style.color = "red";
 
-    hrQuestions.innerHTML =
-    "<ul>" +
-    questions.hr.map(function(q){
-        return "<li>" + q + "</li>";
-    }).join("") +
-    "</ul>";
+                generateBtn.disabled = false;
+                generateBtn.textContent = "🚀 Start Interview Preparation";
 
-    codingQuestions.innerHTML =
-    "<ul>" +
-    questions.coding.map(function(q){
-        return "<li>" + q + "</li>";
-    }).join("") +
-    "</ul>";
+            });
 
-    message.textContent =
-        "✅ " + data.filename + " uploaded successfully!";
+        }, 2000);
 
-    message.style.color = "green";
+    }, 2000);
 
-});
-}, 6000);
 });

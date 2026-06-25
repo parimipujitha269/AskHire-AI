@@ -96,11 +96,19 @@ Do not use ```json.
 Return only the JSON object.
 """
 
-    response = model.generate_content(prompt)
+    try:
 
-    return jsonify({
-        "filename": resume.filename,
-        "questions": response.text
-    })
+        response = model.generate_content(prompt)
+
+        return jsonify({
+            "filename": resume.filename,
+            "questions": response.text
+        })
+
+    except Exception:
+
+     return jsonify({
+        "error": "Gemini API quota exceeded. Please try again later."
+    }), 500
 if __name__ == "__main__":
     app.run(debug=True)
