@@ -84,18 +84,30 @@ setTimeout(function () {
     </ul>
     `;
 
-    fetch("http://127.0.0.1:5000/")
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
+    const formData = new FormData();
 
-            console.log(data);
+formData.append("resume", resumeInput.files[0]);
 
-            message.textContent = "✅ " + data.message;
-            message.style.color = "green";
+fetch("http://127.0.0.1:5000/upload", {
 
-        });
+    method: "POST",
 
+    body: formData
+
+})
+.then(function(response){
+
+    return response.json();
+
+})
+.then(function(data){
+
+    console.log(data);
+
+    message.textContent = "✅ Uploaded : " + data.filename;
+
+    message.style.color = "green";
+
+});
 }, 6000);
 });
