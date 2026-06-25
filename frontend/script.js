@@ -43,18 +43,19 @@ if (difficulty === null) {
 }
    message.textContent = "📄 Reading your resume...";
 message.style.color = "#2563eb";
-
-
 setTimeout(function () {
 
     message.textContent = "🧠 Analyzing your skills...";
 
 }, 2000);
+
 setTimeout(function () {
 
     message.textContent = "🤖 Generating interview questions...";
 
 }, 4000);
+
+
 setTimeout(function () {
 
     resultSection.style.display = "block";
@@ -66,21 +67,35 @@ setTimeout(function () {
         <li>What is Polymorphism?</li>
     </ul>
     `;
+
     hrQuestions.innerHTML = `
-<ul>
-    <li>Tell me about yourself.</li>
-    <li>Why should we hire you?</li>
-    <li>What are your strengths?</li>
-</ul>
-`;
-codingQuestions.innerHTML = `
-<ul>
-    <li>Reverse a string.</li>
-    <li>Find the largest element in an array.</li>
-    <li>Check whether a string is a palindrome.</li>
-</ul>
-`;
+    <ul>
+        <li>Tell me about yourself.</li>
+        <li>Why should we hire you?</li>
+        <li>What are your strengths?</li>
+    </ul>
+    `;
+
+    codingQuestions.innerHTML = `
+    <ul>
+        <li>Reverse a string.</li>
+        <li>Find the largest element in an array.</li>
+        <li>Check whether a string is a palindrome.</li>
+    </ul>
+    `;
+
+    fetch("http://127.0.0.1:5000/")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+
+            console.log(data);
+
+            message.textContent = "✅ " + data.message;
+            message.style.color = "green";
+
+        });
 
 }, 6000);
-
 });
