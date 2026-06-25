@@ -60,7 +60,7 @@ setTimeout(function () {
 
     resultSection.style.display = "block";
 
-    technicalQuestions.innerHTML = `
+    /*technicalQuestions.innerHTML = `
     <ul>
         <li>What is a REST API?</li>
         <li>Explain Stack vs Heap Memory.</li>
@@ -82,7 +82,7 @@ setTimeout(function () {
         <li>Find the largest element in an array.</li>
         <li>Check whether a string is a palindrome.</li>
     </ul>
-    `;
+    `;*/
 const formData = new FormData();
 
 formData.append("resume", resumeInput.files[0]);
@@ -105,10 +105,32 @@ fetch("http://127.0.0.1:5000/upload", {
 })
 .then(function(data){
 
-    console.log(data);
+    const questions = JSON.parse(data.questions);
+
+    technicalQuestions.innerHTML =
+    "<ul>" +
+    questions.technical.map(function(q){
+        return "<li>" + q + "</li>";
+    }).join("") +
+    "</ul>";
+
+    hrQuestions.innerHTML =
+    "<ul>" +
+    questions.hr.map(function(q){
+        return "<li>" + q + "</li>";
+    }).join("") +
+    "</ul>";
+
+    codingQuestions.innerHTML =
+    "<ul>" +
+    questions.coding.map(function(q){
+        return "<li>" + q + "</li>";
+    }).join("") +
+    "</ul>";
 
     message.textContent =
         "✅ " + data.filename + " uploaded successfully!";
+
     message.style.color = "green";
 
 });

@@ -35,6 +35,8 @@ def generate():
 def upload_resume():
 
     resume = request.files["resume"]
+    role = request.form["role"]
+    difficulty = request.form["difficulty"]
 
     pdf = PdfReader(resume)
 
@@ -46,10 +48,59 @@ def upload_resume():
         if extracted:
             text += extracted + "\n"
 
+    prompt = f"""
+You are an experienced technical interviewer.
+
+Candidate Resume:
+{text}
+
+Target Job Role:
+{role}
+
+Difficulty:
+{difficulty}
+
+Generate:
+
+1. Five Technical Interview Questions
+
+2. Three HR Interview Questions
+
+3. Two Coding Questions
+
+Return ONLY valid JSON.
+
+Use this exact structure:
+
+{{
+    "technical": [
+        "Question 1",
+        "Question 2",
+        "Question 3",
+        "Question 4",
+        "Question 5"
+    ],
+    "hr": [
+        "Question 1",
+        "Question 2",
+        "Question 3"
+    ],
+    "coding": [
+        "Question 1",
+        "Question 2"
+    ]
+}}
+
+Do not return markdown.
+Do not use ```json.
+Return only the JSON object.
+"""
+
+    response = model.generate_content(prompt)
+
     return jsonify({
         "filename": resume.filename,
-        "resume_text": text
+        "questions": response.text
     })
-
 if __name__ == "__main__":
     app.run(debug=True)
