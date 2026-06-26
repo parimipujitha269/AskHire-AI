@@ -16,64 +16,129 @@
 </head>
 
 <body>
+    <nav class="navbar">
+
+    <div class="logo">
+        🤖 AskHire AI
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="#">Home</a></li>
+
+        <li><a href="#">Features</a></li>
+
+        <li><a href="#">About</a></li>
+
+        <li><a href="#">GitHub</a></li>
+
+    </ul>
+
+</nav>
 
     <div class="container">
 
-        <h1>AskHire AI</h1>
+        <!-- ================= HERO ================= -->
 
-        <h3>Prepare Smarter. Get Hired Faster.</h3>
+        <div class="hero">
 
-        <p>AI-powered Interview Preparation Platform</p>
+            
+
+            <h2>Prepare Smarter. Get Hired Faster.</h2>
+
+            <p>
+                Practice personalized Technical, HR & Coding interview questions.
+            </p>
+
+        </div>
 
         <hr>
 
-        <div class="form-row">
+        <!-- ================= STEP 1 ================= -->
 
-            <div class="form-group">
+        <div class="step-card">
 
-                <label for="resume">Upload Resume (PDF)</label>
+            <div class="step-number">1</div>
+
+            <label for="resume">Upload Resume (PDF)</label>
+
+            <div class="upload-box">
+
+                <label for="resume" class="upload-label">
+
+                    <div class="upload-icon">📄</div>
+
+                    <h3>Upload Your Resume</h3>
+
+                    <span>Drag & Drop PDF Here</span>
+
+                    <p>or</p>
+
+                    <span>Click to Browse</span>
+
+                </label>
 
                 <input
                     type="file"
                     id="resume"
-                    accept=".pdf">
+                    accept=".pdf"
+                    hidden>
 
-            </div>
-
-            <div class="form-group">
-
-                <label for="role">Select Job Role</label>
-
-                <select id="role">
-
-                    <option value="">-- Select Role --</option>
-
-                    <option value="Software Engineer">Software Engineer</option>
-                    <option value="Frontend Developer">Frontend Developer</option>
-                    <option value="Backend Developer">Backend Developer</option>
-                    <option value="Full Stack Developer">Full Stack Developer</option>
-                    <option value="Python Developer">Python Developer</option>
-                    <option value="Java Developer">Java Developer</option>
-                    <option value="Data Analyst">Data Analyst</option>
-
-                </select>
+                <p id="selectedFile"></p>
 
             </div>
 
         </div>
 
-        <h4>Interview Difficulty</h4>
+        <!-- ================= STEP 2 ================= -->
 
-        <input type="radio" id="easy" name="difficulty" value="Easy">
-        <label for="easy">Easy</label>
+        <div class="step-card">
 
-        <input type="radio" id="medium" name="difficulty" value="Medium">
-        <label for="medium">Medium</label>
+            <div class="step-number">2</div>
 
-        <input type="radio" id="hard" name="difficulty" value="Hard">
-        <label for="hard">Hard</label>
+            <h4>Select Job Role</h4>
+
+            <select id="role">
+
+                <option value="">-- Select Role --</option>
+
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Backend Developer">Backend Developer</option>
+                <option value="Full Stack Developer">Full Stack Developer</option>
+                <option value="Python Developer">Python Developer</option>
+                <option value="Java Developer">Java Developer</option>
+                <option value="Data Analyst">Data Analyst</option>
+
+            </select>
+
+        </div>
+
+        <!-- ================= STEP 3 ================= -->
+
+        <div class="step-card">
+
+            <div class="step-number">3</div>
+
+            <h4>Interview Difficulty</h4>
+
+            <input type="radio" id="easy" name="difficulty" value="Easy">
+            <label class="difficulty-btn" for="easy">Easy</label>
+
+            <input type="radio" id="medium" name="difficulty" value="Medium">
+            <label class="difficulty-btn" for="medium">Medium</label>
+
+            <input type="radio" id="hard" name="difficulty" value="Hard">
+            <label class="difficulty-btn" for="hard">Hard</label>
+
+        </div>
+
+        <!-- ================= MESSAGE ================= -->
 
         <div id="message"></div>
+        <div id="loader"></div>
+
+        <!-- ================= BUTTON ================= -->
 
         <div class="button-container">
 
@@ -85,41 +150,83 @@
 
         <hr>
 
+        <!-- ================= RESULTS ================= -->
+
         <div id="resultSection">
 
-            <h2>Your Personalized Interview Questions</h2>
+    <!-- Resume Analysis -->
 
-            <h3>💻 Technical Interview Questions</h3>
+    <div id="analysisSection">
 
-            <div id="technicalQuestions">
+        <h2>📊 Resume Analysis</h2>
 
-                <p class="placeholder">
-                    Technical interview questions will appear here.
-                </p>
+        <div class="analysis-card">
 
-            </div>
+           <div class="score-container">
 
-            <h3>👥 HR Interview Questions</h3>
+    <div class="score-circle">
 
-            <div id="hrQuestions">
+        <span id="resumeScore">--</span>
 
-                <p class="placeholder">
-                    HR interview questions will appear here.
-                </p>
+    </div>
 
-            </div>
+    <h3>Resume Score</h3>
 
-            <h3>💡 Coding Challenge</h3>
+</div>
 
-            <div id="codingQuestions">
+            <h4>✅ Strengths</h4>
 
-                <p class="placeholder">
-                    Coding challenge will appear here.
-                </p>
+            <div id="strengths"></div>
 
-            </div>
+            <h4>⚠ Weaknesses</h4>
+
+            <div id="weaknesses"></div>
+
+            <h4>💻 Skills</h4>
+
+            <div id="skills"></div>
+
+            <h4>💡 Suggestions</h4>
+
+            <div id="suggestions"></div>
 
         </div>
+
+    </div>
+
+    <h2>Your Personalized Interview Questions</h2>
+
+    <h3>💻 Technical Interview Questions</h3>
+
+    <div id="technicalQuestions">
+
+        <p class="placeholder">
+            Technical interview questions will appear here.
+        </p>
+
+    </div>
+
+    <h3>👥 HR Interview Questions</h3>
+
+    <div id="hrQuestions">
+
+        <p class="placeholder">
+            HR interview questions will appear here.
+        </p>
+
+    </div>
+
+    <h3>💡 Coding Challenges</h3>
+
+    <div id="codingQuestions">
+
+        <p class="placeholder">
+            Coding challenges will appear here.
+        </p>
+
+    </div>
+
+</div>
 
     </div>
 
