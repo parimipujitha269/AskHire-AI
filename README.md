@@ -1,77 +1,125 @@
-# AskHire AI
+# 🤖 AskHire AI
 
-### Prepare Smarter. Get Hired Faster.
+**Prepare Smarter. Get Hired Faster.**
 
-## Project Overview
+AskHire AI is an AI-powered interview preparation platform that analyzes a candidate's resume and generates personalized interview questions using Google's Gemini AI.
 
-AskHire AI is an AI-powered interview preparation platform that helps students and job seekers prepare for technical interviews by generating personalized interview questions based on their resume, target job role, and difficulty level.
-
----
-
-## Problem Statement
-
-Many students struggle to find interview questions relevant to their resume and desired job role.
-
-Most websites provide generic questions that are not personalized.
-
-This application solves that problem by generating customized interview questions using Artificial Intelligence.
+The application extracts information from a PDF resume, performs AI-based resume analysis, identifies strengths and weaknesses, detects technical skills, provides improvement suggestions, and generates personalized Technical, HR, and Coding interview questions.
 
 ---
 
-## Objectives
+## ✨ Features
 
-- Generate personalized interview questions
-- Help students prepare for placements
-- Reduce interview preparation time
-- Provide role-specific questions
-
----
-
-## Target Users
-
-- College Students
-- Freshers
-- Job Seekers
-
----
-
-## Features (Version 1)
-
-- Upload Resume (PDF)
-- Select Job Role
-- Select Difficulty
-- Generate Technical Questions
-- Generate HR Questions
-- Display Questions
+* 📄 Upload Resume (PDF)
+* 🤖 AI-powered Resume Analysis
+* 📊 Resume Score
+* ✅ Resume Strengths
+* ⚠️ Resume Weaknesses
+* 💻 Technical Skills Detection
+* 💡 AI Resume Improvement Suggestions
+* 🎯 Personalized Technical Interview Questions
+* 👥 HR Interview Questions
+* 💻 Coding Challenges
+* 📱 Responsive User Interface
 
 ---
 
-## Future Enhancements
+## 🛠️ Tech Stack
 
-- Coding Questions
-- AI Feedback on Answers
-- Resume Analysis
-- Mock Interview Mode
-- Voice Interview
-- User Login
-- Question History
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Backend
+
+* Flask
+* Python
+
+### AI
+
+* Google Gemini API
+
+### Libraries
+
+* PyPDF2
+* Flask-CORS
+* python-dotenv
 
 ---
 
-## Tech Stack
+## 📂 Project Structure
 
-Frontend:
-- HTML
-- CSS
-- JavaScript
+```
+AskHire-AI
+│
+├── backend
+│   ├── app.py
+│   ├── .env
+│   └── requirements.txt
+│
+├── frontend
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+└── README.md
+```
 
-Backend:
-- Python
-- Flask
+---
+## 🚧 Project Status
 
-AI:
-- Gemini API
+AskHire AI is currently under active development.
 
-Database:
-- None (Version 1)
-- MongoDB (Future Version)
+Completed Features:
+- ✅ Resume Upload
+- ✅ Resume Analysis
+- ✅ Resume Score
+- ✅ Skills Detection
+- ✅ AI Suggestions
+- ✅ Technical Questions
+- ✅ HR Questions
+- ✅ Coding Challenges
+
+Upcoming Features:
+- 🔄 AI Mock Interview
+- 🔄 Company-Specific Interview Mode
+- 🔄 Dark Mode
+- 🔄 Authentication
+- 🔄 Deployment
+
+## 🚀 How It Works
+
+1. Upload a PDF resume.
+2. Select the target job role.
+3. Choose interview difficulty.
+4. AI analyzes the resume.
+5. Resume score is generated.
+6. Strengths and weaknesses are identified.
+7. Technical skills are detected.
+8. Resume improvement suggestions are provided.
+9. Personalized Technical, HR, and Coding interview questions are generated.
+
+---
+
+## 🗺️ Roadmap
+
+### Version 1.1
+- 🎨 Improved UI
+- 📊 Resume Analysis
+- 🏷️ Skill Badges
+- 💡 Better Loading Screen
+- 🚀 Genarating Interview Questions 
+
+### Version 2.0
+- 🎤 AI Mock Interview
+- 🏢 Company-Specific Questions
+- 📝 AI Answer Evaluation
+
+### Version 3.0
+- 👤 User Authentication
+- ☁️ Cloud Deployment
+- 📜 Interview History
+
+
